@@ -21,7 +21,7 @@ namespace TodoListWebApplication.Models.DataContext
             builder.HasDefaultSchema("Task");
             builder.Entity<Todo>().Property(e => e.CreatedDate).HasDefaultValueSql("DATEADD(HOUR,4,getutcdate())");
         }
-        public  DbSet<ProgrammeLanguage> ProgrammeLanguages { get; set; }
+        public  DbSet<ProgrammingLanguage> ProgrammingLanguages { get; set; }
         public DbSet<Todo> Todos { get; set; }
     }
 }

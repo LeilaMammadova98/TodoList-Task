@@ -12,7 +12,7 @@
 @foreach (var item in Model)
 {
     <div class="col-4 mt-3">
-        <div class="card index-card text-left">
+        <div class="card index-card text-left"style="min-height:300px">
             <h5 class="card-header bg-muted">@item.Title</h5>
             <div class="card-body">
 
@@ -21,9 +21,9 @@
             </div>
             <div class="card-footer bg-muted d-flex  align-items-center">
                 <div>
+                    <input class="form-check-input ml-2" asp-for="@item.isCompleted" disabled/> 
 
-                    <input type="checkbox" id="isBool" name="isBool" value="@item.isCompleted" disabled  />
-                    <label for="isBool">Tamamlanib</label>
+                <label class="ml-4" for="isBool">Tamamlanıb</label>
                 </div>
                 <a asp-action="Details" asp-route-Id="@item.Id" class="btn btn-primary ">Go to details</a>
             </div>

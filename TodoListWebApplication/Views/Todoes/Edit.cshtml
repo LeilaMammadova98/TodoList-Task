@@ -6,43 +6,14 @@
 
 
 
-    @*<div class="col-md-4 offset-4">
-        <form asp-action="Edit" class="card h-100" style="min-height: 300px !important" novalidate="novalidate">
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group card-header">
-                <label asp-for="Title" class="control-label"></label>
-                <input asp-for="Title" class="form-control" />
-                <span asp-validation-for="Title" class="text-danger"></span>
-            </div>
-            <div class="form-group card-body">
-                <label asp-for="Description" class="control-label"></label>
-                <textarea asp-for="Description" class="form-control" rows="7" style="resize:none;width:100%"></textarea>
-            </div>
-            <div class="form-group card-body">
-                <label asp-for="ResponsiblePerson" class="control-label"></label>
-                <input asp-for="ResponsiblePerson" class="form-control" />
-                <span asp-validation-for="ResponsiblePerson" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check card-body">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="isComplated" /> @Html.DisplayNameFor(model => model.isComplated)
-                </label>
-            </div>
-          
-            <div class="form-group card-footer d-flex align-items-baseline">
-                <input type="submit" value="Save" class="btn btn-success" />
-                <a asp-action="Index" class="btn btn-primary ml-2">Geri dön</a>
-
-            </div>
-        </form>
-    </div>*@
+   
 
 
 
 
 
 
-    <div class="col-md-4 offset-4">
+    <div class="col-md-6 offset-3">
 
         <form class="card h-100" asp-action="Edit" style="min-height: 300px !important" novalidate="novalidate">
             <input type="hidden" asp-for="Id" />
@@ -74,9 +45,8 @@
                 </p>
             </div>
             <div class="card-body ">
-                <input class="form-check-input ml-3" asp-for="isCompleted" /> @Html.DisplayNameFor(model => model.isCompleted)
-
-                <label class="form-check-label">  </label>
+                <input class="form-check-input ml-2" asp-for="isCompleted" />
+                <label for="isBool" class="ml-4">Tamamlanıb</label>
             </div>
 
             <div class="card-footer d-flex   bg-muted">

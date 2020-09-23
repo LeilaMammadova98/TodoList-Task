@@ -28,6 +28,6 @@ namespace TodoListWebApplication.Models.Entity
         public DateTime? DeletedDate { get; set; }
         public int PlId { get; set; }
         [ForeignKey("PlId")]
-        public virtual ProgrammeLanguage ProgrammeLanguage { get; set; }
+        public virtual ProgrammingLanguage ProgrammingLanguage { get; set; }
     }
 }

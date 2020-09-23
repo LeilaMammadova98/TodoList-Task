@@ -10,8 +10,8 @@ using TodoListWebApplication.Models.DataContext;
 namespace TodoListWebApplication.Migrations
 {
     [DbContext(typeof(TodoTaskDataContext))]
-    [Migration("20200923112830_TodoCreate")]
-    partial class TodoCreate
+    [Migration("20200923224804_init3")]
+    partial class init3
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -22,7 +22,7 @@ namespace TodoListWebApplication.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("TodoListWebApplication.Models.Entity.ProgrammeLanguage", b =>
+            modelBuilder.Entity("TodoListWebApplication.Models.Entity.ProgrammingLanguage", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -34,7 +34,7 @@ namespace TodoListWebApplication.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("langugaes");
+                    b.ToTable("ProgrammingLanguages");
                 });
 
             modelBuilder.Entity("TodoListWebApplication.Models.Entity.Todo", b =>
@@ -46,7 +46,8 @@ namespace TodoListWebApplication.Migrations
 
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("DATEADD(HOUR,4,getutcdate())");
 
                     b.Property<DateTime?>("DeletedDate")
                         .HasColumnType("datetime2");
@@ -54,6 +55,9 @@ namespace TodoListWebApplication.Migrations
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("PlId")
+                        .HasColumnType("int");
 
                     b.Property<string>("ResponsiblePerson")
                         .HasColumnType("nvarchar(max)");
@@ -70,7 +74,18 @@ namespace TodoListWebApplication.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("PlId");
+
                     b.ToTable("Todos");
+                });
+
+            modelBuilder.Entity("TodoListWebApplication.Models.Entity.Todo", b =>
+                {
+                    b.HasOne("TodoListWebApplication.Models.Entity.ProgrammingLanguage", "ProgrammingLanguage")
+                        .WithMany()
+                        .HasForeignKey("PlId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

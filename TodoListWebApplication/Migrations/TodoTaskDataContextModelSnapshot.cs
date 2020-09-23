@@ -20,7 +20,7 @@ namespace TodoListWebApplication.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("TodoListWebApplication.Models.Entity.ProgrammeLanguage", b =>
+            modelBuilder.Entity("TodoListWebApplication.Models.Entity.ProgrammingLanguage", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -32,7 +32,7 @@ namespace TodoListWebApplication.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ProgrammeLanguages");
+                    b.ToTable("ProgrammingLanguages");
                 });
 
             modelBuilder.Entity("TodoListWebApplication.Models.Entity.Todo", b =>
@@ -79,7 +79,7 @@ namespace TodoListWebApplication.Migrations
 
             modelBuilder.Entity("TodoListWebApplication.Models.Entity.Todo", b =>
                 {
-                    b.HasOne("TodoListWebApplication.Models.Entity.ProgrammeLanguage", "ProgrammeLanguage")
+                    b.HasOne("TodoListWebApplication.Models.Entity.ProgrammingLanguage", "ProgrammingLanguage")
                         .WithMany()
                         .HasForeignKey("PlId")
                         .OnDelete(DeleteBehavior.Cascade)

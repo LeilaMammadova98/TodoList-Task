@@ -53,7 +53,7 @@ namespace TodoListWebApplication.Controllers
         // GET: Todoes/Create
         public IActionResult Create()
         {
-            ViewBag.pls = new SelectList(_context.ProgrammeLanguages, "Id", "Name");
+            ViewBag.pls = new SelectList(_context.ProgrammingLanguages, "Id", "Name");
             return View();
         }
 
