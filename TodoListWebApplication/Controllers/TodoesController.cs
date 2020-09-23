@@ -22,6 +22,13 @@ namespace TodoListWebApplication.Controllers
         // GET: Todoes
         public async Task<IActionResult> Index()
         {
+            //foreach (var item in _context.Todos)
+            //{
+            //    if (item.isComplated == true)
+            //    {
+            //        item.isComplated = checked();
+            //    }
+            //}
             return View(await _context.Todos.Where(c=>c.DeletedDate==null).ToListAsync());
         }
 
@@ -99,6 +106,7 @@ namespace TodoListWebApplication.Controllers
             {
                 try
                 {
+                    todo.PlId = 1   ;
                     todo.UpdatedDate = DateTime.UtcNow;
                     _context.Update(todo);
                     await _context.SaveChangesAsync();
