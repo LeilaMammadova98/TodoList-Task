@@ -1,0 +1,47 @@
+﻿@model TodoListWebApplication.Models.Entity.Todo
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="col-md-4 offset-4">
+
+    <form class="card h-100"style="min-height: 300px !important" method="post" novalidate="novalidate">
+        <div class="card-header">
+            <h5 class="card-title">
+                <input asp-for="Title" class="form-control" placeholder="Başlıq əlavə edin" />
+            <span asp-validation-for="Title"class="badge badge-danger"></span>
+            </h5>
+        </div>
+        <div class="card-body ">
+            <p class="card-text">
+                <textarea asp-for="Description" class="form-control" placeholder="Qeyd əlavə edin" rows="7" style="resize:none;width:100%"></textarea>
+                <span asp-validation-for="Description" class="badge badge-danger"></span>
+
+            </p>
+        </div>
+        <div class="card-body">
+            <label asp-for="PlId"></label>
+            <select asp-for="PlId" asp-items=" @ViewBag.pls "class="form-control">
+            </select>
+        </div>
+        <div class="card-body ">
+            <p class="card-text">
+                <input asp-for="ResponsiblePerson" class="form-control" placeholder="Adınızı qeyd edin" rows="7" style="resize:none;width:100%">
+
+            </p>
+        </div>
+
+        <div class="card-footer d-flex   bg-muted">
+
+            <button type="submit" class="btn btn-success">Tesdiqlə</button>
+            <a asp-action="Index" class="btn btn-primary">Geri dön</a>
+
+        </div>
+
+    </form>
+
+
+
+</div>
+

@@ -1,0 +1,31 @@
+﻿@model IEnumerable<TodoListWebApplication.Models.Entity.Todo>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="col-4 d-flex align-items-center justify-content-center">
+    <a asp-action="Create">
+        <i class="fas fa-plus"></i>
+    </a>
+</div>
+@foreach (var item in Model)
+{
+    <div class="col-4 mt-3">
+        <div class="card index-card text-left">
+            <h5 class="card-header bg-muted">@item.Title</h5>
+            <div class="card-body">
+
+                <p class="card-text">@item.Description</p>
+
+            </div>
+            <div class="card-footer bg-muted d-flex  align-items-center">
+                <div>
+                    <input type="checkbox" id="isBool" name="isBool" value="@item.isComplated" />
+                    <label for="isBool">Tamamlanib</label>
+                </div>
+                <a asp-action="Details" asp-route-Id="@item.Id" class="btn btn-primary ">Go to details</a>
+            </div>
+        </div>
+    </div>
+}
