@@ -18,7 +18,7 @@ namespace TodoListWebApplication.Models.Entity
         public string Description  { get; set; }
 
         public string ResponsiblePerson  { get; set; }
-        public bool isComplated { get; set; }
+        public bool isCompleted { get; set; }
         [BindNever]
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public DateTime  CreatedDate { get; set; }

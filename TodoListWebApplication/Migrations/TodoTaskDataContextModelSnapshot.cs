@@ -67,7 +67,7 @@ namespace TodoListWebApplication.Migrations
                     b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<bool>("isComplated")
+                    b.Property<bool>("isCompleted")
                         .HasColumnType("bit");
 
                     b.HasKey("Id");

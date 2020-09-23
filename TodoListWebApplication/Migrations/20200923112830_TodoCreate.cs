@@ -17,7 +17,7 @@ namespace TodoListWebApplication.Migrations
                     Title = table.Column<string>(nullable: false),
                     Description = table.Column<string>(nullable: false),
                     ResponsiblePerson = table.Column<string>(nullable: true),
-                    isComplated = table.Column<bool>(nullable: false),
+                    isCompleted = table.Column<bool>(nullable: false),
                     CreatedDate = table.Column<DateTime>(nullable: false),
                     UpdatedDate = table.Column<DateTime>(nullable: true),
                     DeletedDate = table.Column<DateTime>(nullable: true)
